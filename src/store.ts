@@ -1,0 +1,2 @@
+import {create} from 'zustand';import type {Role} from './data/types';
+export const useStore=create<{role:Role;page:string;revision:number;setRole:(role:Role)=>void;setPage:(page:string)=>void;refresh:()=>void}>(set=>({role:'Block Officer',page:'dashboard',revision:0,setRole:role=>set({role,page:role==='Receiver'?'receiver':role==='Field Worker'?'departure':'dashboard'}),setPage:page=>set({page}),refresh:()=>set(s=>({revision:s.revision+1}))}));
